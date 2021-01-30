@@ -4,7 +4,7 @@ import apiurl from '../../environment';
 import CreateBrawl from '../Brawl/CreateBrawl';
 import BusinessItem from '../Business/BusinessItem';
 
-interface Business {
+export interface BusinessObj {
     name: string,
     description: string,
     location: string,
@@ -16,7 +16,7 @@ interface Business {
 }
 
 interface States {
-    businesses: Business[],
+    businesses: BusinessObj[],
     startingBrawl: boolean,
     businessKey: number
 }

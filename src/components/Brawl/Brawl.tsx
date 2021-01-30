@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface Brawl {
+export interface BrawlObj {
     name: string,
     drink: string,
     business1Pic: string,

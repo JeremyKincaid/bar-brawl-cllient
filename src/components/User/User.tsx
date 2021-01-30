@@ -1,12 +1,12 @@
 import React from 'react';
 import CreateBusiness from '../Business/CreateBusiness';
 import Business from '../Business/Business';
-import Brawl from '../Brawl/Brawl';
+import Brawl, { BrawlObj } from '../Brawl/Brawl';
 import BrawlItem from '../Brawl/BrawlItem';
 import apiurl from '../../environment';
 
 interface States {
-    brawls: Brawl[]
+    brawls: BrawlObj[]
 }
 
 interface Props {

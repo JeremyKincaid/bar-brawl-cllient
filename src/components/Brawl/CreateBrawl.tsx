@@ -4,7 +4,7 @@ import apiurl from '../../environment';
 import SportsMmaTwoToneIcon from '@material-ui/icons/SportsMmaTwoTone';
 // import { Button, Input } from 'reactstrap';
 import Business from '../Business/Business';
-import BusinessObj from '../Business/Business';
+import {BusinessObj} from '../Business/Business';
 
 interface States {
     name: string,
@@ -69,7 +69,7 @@ class CreateBrawl extends React.Component<Props, States> {
 
     /**Removes the business that is initiating the brawl, so a business can't challenge itself
     */
-    removeThisBus: (busArr: Business[]) => Business[] = (busArr) => {
+    removeThisBus: (busArr: BusinessObj[]) => BusinessObj[] = (busArr) => {
         for( var i = 0; i < busArr.length; i++){ 
             if ( busArr[i].id === this.state.business1) { 
                 busArr.splice(i, 1); 

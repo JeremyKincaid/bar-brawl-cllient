@@ -1,0 +1,12 @@
+.mainDiv {
+    height: 100vh;
+}
+
+.signInput {
+    width: 80%;
+}
+
+.login {
+    min-width: 40%;
+    min-height: 40%; 
+}

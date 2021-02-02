@@ -9,8 +9,8 @@ export interface BrawlObj {
     endDate: Date,
     winnerId: number,
     business1Id: number,
-    business2Id: number
-
+    business2Id: number,
+    id: number
 }
 
 interface States {

@@ -1,10 +1,9 @@
-import { TextField, Button, Select,FormControl, InputLabel, MenuItem } from '@material-ui/core';
+import { TextField, Button, Select,FormControl, InputLabel, Paper } from '@material-ui/core';
 import React from 'react';
 import apiurl from '../../environment';
 import SportsMmaTwoToneIcon from '@material-ui/icons/SportsMmaTwoTone';
-// import { Button, Input } from 'reactstrap';
-import Business from '../Business/Business';
 import {BusinessObj} from '../Business/Business';
+import './CreateBrawl.css';
 
 interface States {
     name: string,
@@ -120,13 +119,13 @@ class CreateBrawl extends React.Component<Props, States> {
 
     render(){
         return(
-            <div>
+            <Paper>
                 <h1>Start Brawl</h1>
                 <SportsMmaTwoToneIcon style={{ color: '#ed1818', fontSize: '80'}} fontSize="large"/>
                 <h2>
-                    {this.props.bus.name} VS <FormControl variant="outlined">
+                    {this.props.bus.name} VS <FormControl className="brawlControl">
                         <InputLabel id="opponent-label">Your opponent</InputLabel>
-                        <Select native id="businessSelect"  labelId="opponent-label" onChange={this.setBus2}>
+                        <Select className="brawlSelect" native id="businessSelect"  labelId="opponent-label" onChange={this.setBus2}>
                             {/* <MenuItem value="">
                                 <em>None</em>
                             </MenuItem> */}
@@ -138,12 +137,12 @@ class CreateBrawl extends React.Component<Props, States> {
                 <form>
                     {/* <label htmlFor="name">Brawl Name</label> */}
                     <br />
-                    <TextField label="Brawl Name" id="name" value={this.state.name} onChange={e => this.setState({name: e.target.value})} variant="outlined"/>
+                    <TextField className="brawlInput" label="Brawl Name" id="name" value={this.state.name} onChange={e => this.setState({name: e.target.value})} />
                     <br />
 
                     {/* <label htmlFor="drink">Drink</label> */}
                     <br />
-                    <TextField label="Choose a drink for the brawl(ex: Margarita, Brown Ale, Appletini)" id="drink" value={this.state.drink} onChange={e => this.setState({drink: e.target.value})} variant="outlined" />
+                    <TextField className="brawlInput" label="Choose a drink for the brawl(ex: Margarita, Brown Ale, Appletini)" id="drink" value={this.state.drink} onChange={e => this.setState({drink: e.target.value})} />
                     <br />
                     <br />
 
@@ -155,6 +154,7 @@ class CreateBrawl extends React.Component<Props, States> {
                         })
                     } /> */}
                     <TextField
+                        className="brawlInput"
                         id="startDate"
                         label="Start Date"
                         type="date"
@@ -171,6 +171,7 @@ class CreateBrawl extends React.Component<Props, States> {
                     <br />
 
                     <TextField
+                        className="brawlInput"
                         id="endDate"
                         label="End Date"
                         type="date"
@@ -186,9 +187,9 @@ class CreateBrawl extends React.Component<Props, States> {
                 </form>
 
                 <br />
-                <Button variant="contained" color="secondary" onClick={() => this.props.startBrawl(0)}>Cancel</Button>
-                <Button variant="contained" color="primary" onClick={this.createBrawl} >Submit</Button>
-            </div>
+                <Button className="brawlButton" variant="outlined" color="secondary" onClick={() => this.props.startBrawl(0)}>Cancel</Button>
+                <Button className="brawlButton" variant="outlined" color="primary" onClick={this.createBrawl} >Submit</Button>
+            </Paper>
         )
     }
 }

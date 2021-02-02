@@ -1,7 +1,7 @@
-import React, { useState } from 'react'; 
+import React from 'react'; 
 import './Auth.css';
-import {Button, Row, Col, Container} from 'reactstrap'; 
 import apiurl from '../../environment'; 
+import { Grid, Paper, Button, Input } from '@material-ui/core';
 
 interface States {
     email: string;
@@ -63,7 +63,11 @@ class Auth extends React.Component<Props, States> {
             body: JSON.stringify(body)
         })
         .then(r => r.json())
-        .then(rObj => this.props.updateToken(rObj.sessionToken, rObj.user.id)); 
+        .then(rObj => {
+            this.props.updateToken(rObj.sessionToken, rObj.user.id)
+            window.location.reload(false);
+            }
+        ); 
     }
 
     signupFields = () => {
@@ -74,36 +78,36 @@ class Auth extends React.Component<Props, States> {
             <div>
                 <label htmlFor="displayname">Display Name</label>
                 <br />
-                <input id="displayname" value={this.state.displayName} onChange={e => this.setState({displayName: e.target.value})} />
+                <Input className="signInput" id="displayname" value={this.state.displayName} onChange={e => this.setState({displayName: e.target.value})} />
             </div>
             )
         }
     }
     render() {
         return (
-            <div className="mainDiv">
-                <Container id="Container">
-                    <Row className="formRow">
-                        <form>
-                            <h1 className="login">{this.state.login ? 'Login' : 'Signup'}</h1>
-        
-                            <label htmlFor="email">Email</label>
-                            <br />
-                            <input id="email" value={this.state.email} onChange={e => this.setState({email: e.target.value})} /> 
-                            <br />
-                            <label htmlFor="password">Password</label>
-                            <br />
-                            <input id="password" value={this.state.password} onChange={e => this.setState({password: e.target.value})} />
-                            <br />
-                            {this.signupFields()}
-                            <br />
-                            <Button id="btn-primary" onClick={this.handleSubmit}>Submit</Button>
-                            <br />
-                            <Button id="btn-secondary"onClick={this.loginToggle}>{this.state.login ? "Click here to Signup" : "Have a login already? Click here!"}</Button> 
-                        </form>
-                    </Row>
-                </Container>
-            </div> 
+            <Grid container justify="center" alignItems="center" className="mainDiv">
+                <Grid item className="login">
+                    <Paper className="signUpIn">
+                        <h1>{this.state.login ? 'Login' : 'Signup'}</h1>
+    
+                        <label htmlFor="email">Email</label>
+                        <br />
+                        <Input className="signInput" id="email" value={this.state.email} onChange={e => this.setState({email: e.target.value})} /> 
+                        <br />
+                        <br />
+                        <label htmlFor="password">Password</label>
+                        <br />
+                        <Input className="signInput" type="password" id="password" value={this.state.password} onChange={e => this.setState({password: e.target.value})} />
+                        <br />
+                        <br />
+                        {this.signupFields()}
+                        <br />
+                        <Button id="btn-primary" onClick={this.handleSubmit}>Submit</Button>
+                        <br />
+                        <Button id="btn-secondary"onClick={this.loginToggle}>{this.state.login ? "Click here to Signup" : "Have a login already? Click here!"}</Button> 
+                    </Paper>
+                </Grid>
+            </Grid> 
         )
     }
 }

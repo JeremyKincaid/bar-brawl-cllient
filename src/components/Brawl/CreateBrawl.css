@@ -1,0 +1,18 @@
+.brawlInput {
+    /* min-width: 60% !important; */
+    min-width: 50% !important;
+}
+
+.brawlSelect {
+    min-width: 40% !important;
+}
+
+.brawlControl {
+    min-width: 25%;
+    font-size: 20px !important;
+}
+
+.brawlButton {
+    margin: 0.5em;
+    border-radius: 0px;
+}

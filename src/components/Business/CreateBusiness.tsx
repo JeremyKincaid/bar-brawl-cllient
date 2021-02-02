@@ -1,6 +1,7 @@
 import React from 'react';
-import {Button, InputLabel, Input} from '@material-ui/core';
+import {Button, InputLabel, Input, Paper} from '@material-ui/core';
 import apiurl from '../../environment';
+import './CreateBusiness.css'
 
 interface States {
     name: string,
@@ -73,25 +74,23 @@ class CreateBusiness extends React.Component<Props, States> {
             )
         }
         return(
-            <div>
+            <Paper className="businessForm">
                 <InputLabel htmlFor="name">Name</InputLabel>
-                <br/>
-                <Input id="name" value={this.state.name} onChange={e => this.setState({name: e.target.value})} />
+                <Input className="businessLabel" id="name" value={this.state.name} onChange={e => this.setState({name: e.target.value})} />
                 <br />
-
+                <br />
                 <InputLabel htmlFor="description">Description</InputLabel>
-                <br/>
-                <Input id="description" value={this.state.description} onChange={e => this.setState({description: e.target.value})} />
+                <Input className="businessLabel" id="description" value={this.state.description} onChange={e => this.setState({description: e.target.value})} />
                 <br />
-
+                <br/>
                 <InputLabel htmlFor="location">Location</InputLabel>
+                <Input className="businessLabel" id="location" value={this.state.location} onChange={e => this.setState({location: e.target.value})} />
                 <br/>
-                <Input id="location" value={this.state.location} onChange={e => this.setState({location: e.target.value})} />
                 <br/>
-
-                <Button className="btn-primary" onClick={this.createBusiness}>Submit</Button>
                 <Button className="btn-secondary" onClick={this.toggleCreating}>Cancel</Button>
-            </div>
+                <Button className="btn-primary" onClick={this.createBusiness}>Submit</Button>
+
+            </Paper>
         )
     }
 }

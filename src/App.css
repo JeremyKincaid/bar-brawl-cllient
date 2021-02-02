@@ -1,5 +1,19 @@
 .App {
   text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300 !important;
+}
+
+h1 {
+  font-weight: 300 !important;
+}
+
+h2 {
+  font-weight: 300 !important;
+}
+
+h3 {
+  font-weight: 300 !important;
 }
 
 .App-logo {
@@ -14,18 +28,23 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: white; */
 }
 
 .App-link {
   color: #61dafb;
 }
 
+.container {
+  width: 80vw;
+  margin: auto;
+  background: transparent;
+}
 

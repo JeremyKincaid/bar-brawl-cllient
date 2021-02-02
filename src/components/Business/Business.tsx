@@ -1,8 +1,8 @@
-import { stringify } from 'querystring';
 import React from 'react';
 import apiurl from '../../environment';
 import CreateBrawl from '../Brawl/CreateBrawl';
 import BusinessItem from '../Business/BusinessItem';
+import {Grid} from '@material-ui/core';
 
 export interface BusinessObj {
     name: string,
@@ -66,7 +66,9 @@ class Business extends React.Component<Props, States> {
             return(
                 <div>
                     <h1>Your Businesses</h1>
-                    {this.state.businesses.map((busObj, i) => <BusinessItem bus={busObj} key={i} placeNumber={i} startBrawl={this.startBrawl} startingBrawl={this.state.startingBrawl} />)}
+                    <Grid container justify="space-evenly" spacing={2} direction="row">
+                        {this.state.businesses.map((busObj, i) => <BusinessItem bus={busObj} key={i} placeNumber={i} startBrawl={this.startBrawl} startingBrawl={this.state.startingBrawl} />)}
+                    </Grid>
                 </div>
             )
         } else {

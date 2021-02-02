@@ -1,5 +1,6 @@
+import { Grid, Paper, Button } from '@material-ui/core';
 import React from 'react';
-import {Button} from 'reactstrap';
+import './BusinessItem.css';
 
 interface States {
 }
@@ -21,20 +22,18 @@ interface Props {
 }
 
 class BusinessItem extends React.Component<Props, States> {
-    // constructor(props: Props, states: States) {
-    //     super(props, states);
-    // }
 
     render() {
         let business = this.props.bus;
         console.log(this.props)
             return (
-            <div>
-                {business.name}
-                
-                <Button onClick={()=>this.props.startBrawl(this.props.placeNumber)}>Start Brawl</Button>
-                <hr />
-            </div>
+            <Grid item xs={12} md={4}>
+                <Paper elevation={6} className="businessItem" square={true}>
+                    <h2>{business.name}</h2>
+                    <p>{business.location}</p>
+                    <Button className="startBrawl" variant="outlined" onClick={()=>this.props.startBrawl(this.props.placeNumber)}>Start Brawl</Button>
+                </Paper>
+            </Grid>
         )    
     }
 }

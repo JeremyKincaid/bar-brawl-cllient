@@ -1,0 +1,7 @@
+.businessForm {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.businessInput {
+    min-width: 50% !important;
+}

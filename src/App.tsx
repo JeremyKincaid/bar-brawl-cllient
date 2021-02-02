@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import Auth from './components/Auth/Auth';
 import User from './components/User/User';
 import {Button} from '@material-ui/core';
+import { Container } from 'reactstrap';
 
 interface States{
   sessionToken: string;
@@ -41,6 +42,8 @@ class App extends React.Component<{}, States> {
               name="viewport"
               content="minimum-scale=1, initial-scale=1, width=device-width"
             />
+            <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+            <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet"></link>
           </Helmet>
           <Auth updateToken={this.updateToken}/>
         </div>
@@ -48,7 +51,7 @@ class App extends React.Component<{}, States> {
     }
     else {
       return (
-        <div className="App">
+        <Container className="App">
           <Helmet>
             <meta
               name="viewport"
@@ -57,7 +60,7 @@ class App extends React.Component<{}, States> {
           </Helmet>
           <Button onClick={this.clearToken}>Logout</Button>
           <User userId={this.state.userId} sessionToken={this.state.sessionToken}/>
-        </div>
+        </Container>
       );
 
     }
